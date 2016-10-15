@@ -1,0 +1,24 @@
+<template name="cuentasShort">
+	<b>{{nombre}} - 
+	Cortable:</b> {{#if indCortable }} Si {{else}} No {{/if}} <b> - 
+	T Vcto: </b>{{tipoVencimiento}}<b> - 
+	T Emisión: </b>{{tipoEmision}}<b> - 
+	F Pago: </b>{{formaPago}}<b><br/>
+	Dom Postal: </b>{{dirPostalId}}
+</template>
+
+<template name="cuentaNombre">
+	{{nombre}}
+</template>
+
+<template name="cuentasListTemplate">
+	<div class="col-xs-9 col-sm-9">
+		<h4><b>Cuentas del Cliente</b></h4>
+		<div class="list-group">
+			{{#each cuentasVar}}
+				<a href="{{ pathFor 'cuentasShowTemplate' }}" class="list-group-item">{{> cuentasShort }}</a>
+			{{/each}}
+		</div>
+	</div>
+	<a href="{{pathFor 'cuentasNewTemplate'}}" class="btn btn-info">Nueva cuenta</a>
+</template>

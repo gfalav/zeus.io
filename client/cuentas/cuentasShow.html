@@ -1,0 +1,10 @@
+<template name="cuentasShowTemplate">
+	<div class="col-xs-9 col-sm-9">
+	  {{#autoForm collection="Cuentas" id="showCustonCuentasForm" doc=this type="readonly" }}
+
+	  	{{> cuentasForm}}
+
+	  {{/autoForm}}
+	</div>
+	<td><a href="{{pathFor 'cuentasUpdateTemplate'}}" class="btn btn-danger">Edita</a></td>
+</template>

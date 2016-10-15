@@ -1,0 +1,12 @@
+<template name="clientesNewTemplate">
+	<div class="col-xs-9 col-sm-9">
+	  	{{#autoForm collection="Clientes" id="insertCustonClientesForm" type="method" meteormethod="clientesNew" }}
+
+	  		{{> clientesForm}}
+
+	    	<button type="submit" class="btn btn-danger">Enviar</button>
+	    	
+	  	{{/autoForm}}
+
+	</div>
+</template>

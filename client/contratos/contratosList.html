@@ -1,0 +1,19 @@
+<template name="contratosShort">
+			{{nombre}} - {{cliente}} - {{cuenta}}, {{tipoContrato}} - {{estadoContrato}}
+</template>
+
+<template name="contratoNombre">
+	{{nombre}}
+</template>
+
+<template name="contratosListTemplate">
+	<div class="col-xs-9 col-sm-9">
+		<h4><b>Contratos del Cliente</b></h4>
+		<div class="list-group">
+			{{#each contratosVar}}
+				<a href="{{ pathFor 'contratosShowTemplate' }}" class="list-group-item">{{> contratosShort }}</a>
+			{{/each}}
+		</div>
+	</div>
+	<a href="{{pathFor 'contratosNewTemplate'}}" class="btn btn-info">Nuevo Contrato</a>
+</template>
