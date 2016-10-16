@@ -8,7 +8,7 @@ Meteor.publish('clientesPublish', function(id, apellido, nombres, documentoNro) 
 	} else if (apellido) {
 		result = Clientes.find({"apellido": {$regex:  "^"+ apellido}})
 	} else {
-		result = [];
+		result = Clientes.find({});
 	}
 
 	return result;
