@@ -1,18 +1,10 @@
-<template name="clientesShowTemplate">
+<template name="clientesShowTpl">
 	<div class="col-xs-9 col-sm-9">
-	  {{#autoForm collection="Clientes" id="showCustonClientesForm" doc=this type="readonly" }}
+	  {{#autoForm collection="Clientes" id="showCustonClientesForm" doc=clienteVar type="readonly" }}
 
-	  	{{> clientesForm}}
+	  	{{> clientesFormTpl}}
 
 	  {{/autoForm}}
 	</div>
 	<a href="{{pathFor 'clientesUpdateTemplate'}}" class="btn btn-danger">Edita</a>
-</template>
-
-<template name="clienteNombre">
-	{{#if apellido }}
-		{{apellido}} {{apellido2}}, {{nombres}}
-	{{else}}
-		Información del Cliente
-	{{/if}}
 </template>
