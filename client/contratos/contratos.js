@@ -1,52 +1,8 @@
-Template.contratosListTemplate.helpers({
-	contratosVar: function() {
-		return Contratos.find();
-	}
-})
-
-Template.contratosForm.helpers({
-	cuentaIdForm: function() {
-		optionsarr = [];
-
-		if (AutoForm.getFormId()=="insertCustonContratosForm") {
-			cuentas = Cuentas.find({'clienteId': this._id}).fetch();
-			optionsarr = [];
-			cuentas.forEach( function(cuenta) {
-				obj = {};
-				obj.label = cuenta.nombre;
-				obj.value = cuenta._id;
-				optionsarr.push(obj);
-			});
-		} else if (AutoForm.getFormId()=="updateCustonContratosForm") {
-			cuenta = Cuentas.findOne({'clienteId': cuenta.clienteId});
-			cuentas = Cuentas.find({'clienteId': cuenta.clienteId}).fetch();
-			optionsarr = [];
-			cuentas.forEach( function(cuenta) {
-				obj = {};
-				obj.label = cuenta.nombre;
-				obj.value = cuenta._id;
-				optionsarr.push(obj);
-			});
-		}
-
-		return optionsarr;
-	},
-
-	formId: function() {
-		if (AutoForm.getFormId()=="showCustonContratosForm") {
-			return false
-		} else {
-			return true
-		}
-	}
-})
-
 AutoForm.hooks({
 	insertCustonContratosForm: {
 
 		onSuccess: function(formType, result) {
-			contratoSubscript = Meteor.subscribe("contratosPublish", result);
-			Router.go('/contratos/show/' + result);
+			FlowRouter.go('/contratos/' + result);
 		},
 
 		onError: function(formType, error) {
@@ -57,11 +13,70 @@ AutoForm.hooks({
 
 	updateCustonContratosForm: {
 		onSuccess: function(formType, result) {
-			Router.go('/contratos/show/' + this.docId);
+			FlowRouter.go('/contratos/' + this.docId);
 		},
 
 		onError: function(formType, error) {
 			alert(error);
 		}
+	}
+});
+
+Template.contratosFormTpl.helpers({
+	cuentaId: function() {
+		return FlowRouter.getParam('cuentaId');
+	}
+});
+
+Template.contratosListTpl.onCreated(function() {
+	this.cuentaId = () => FlowRouter.getParam('cuentaId');
+
+
+	this.autorun(() => {
+		this.subscribe('contratosPublish', this.cuentaId(), null);
+	});
+
+});
+
+Template.contratosListTpl.helpers({
+	contratosVar: function() {
+		return Contratos.find({});
+	},
+	cuentaId: function() {
+		return FlowRouter.getParam('cuentaId');
+	}
+});
+
+Template.contratosShowTpl.onCreated(function() {
+  this.contratoId = () => FlowRouter.getParam('_id');
+
+  this.autorun(() => {
+    this.subscribe('contratosPublish', null, this.contratoId());
+  });
+
+});
+
+Template.contratosShowTpl.helpers({
+	contratoVar: function() {
+	    this.contratoId = () => FlowRouter.getParam('_id');
+
+		return Contratos.findOne({"_id": this.contratoId() })
+	}
+});
+
+Template.contratosUpdateTpl.onCreated(function() {
+  this.contratoId = () => FlowRouter.getParam('_id');
+
+  this.autorun(() => {
+    this.subscribe('contratosPublish', null, this.contratoId());
+  });
+
+});
+
+Template.contratosUpdateTpl.helpers({
+	contratoVar: function() {
+	    this.contratoId = () => FlowRouter.getParam('_id');
+
+		return Contratos.findOne({"_id": this.contratoId() })
 	}
 });

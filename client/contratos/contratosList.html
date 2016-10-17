@@ -6,8 +6,8 @@
 	{{nombre}}
 </template>
 
-<template name="contratosListTemplate">
-	<div class="col-xs-9 col-sm-9">
+<template name="contratosListTpl">
+	<div class="col-xs-12 col-sm-12">
 		<h4><b>Contratos del Cliente</b></h4>
 		<div class="list-group">
 			{{#each contratosVar}}
@@ -15,5 +15,5 @@
 			{{/each}}
 		</div>
 	</div>
-	<a href="{{pathFor 'contratosNewTemplate'}}" class="btn btn-info">Nuevo Contrato</a>
+	<a href="{{pathFor '/contratos/cuenta/:cuentaId/new' cuentaId=cuentaId }}" class="btn btn-info">Nuevo EDESAL</a>
 </template>

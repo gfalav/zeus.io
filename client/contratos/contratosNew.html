@@ -1,8 +1,8 @@
-<template name="contratosNewTemplate">
-	<div class="col-xs-9 col-sm-9">
+<template name="contratosNewTpl">
+	<div class="col-xs-12 col-sm-12">
 	  	{{#autoForm collection="Contratos" id="insertCustonContratosForm" type="method" meteormethod="contratosNew" }}
 
-	  		{{> contratosForm}}
+	  		{{> contratosFormTpl}}
 
 	    	<button type="submit" class="btn btn-danger">Enviar</button>
 	  	{{/autoForm}}
