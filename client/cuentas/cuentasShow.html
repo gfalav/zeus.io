@@ -6,8 +6,8 @@
 
 	  {{/autoForm}}
 	</div>
-	<td><a href="{{pathFor '/cuentas/:id/edit' id=cuentaVar._id }}" class="btn btn-danger">Edita</a></td>
-	<td><a href="{{pathFor '/cuentas/cliente/:id' id=cuentaVar.clienteId }}" class="btn btn-default">Back</a></td>
-	<td><a href="{{pathFor '/contratos/cuenta/:cuentaId' cuentaId=cuentaVar._id }}" class="btn btn-primary">Contratos</a></td>
+	<a href="{{pathFor '/cuentas/:id/edit' id=cuentaVar._id }}" class="btn btn-danger">Edita</a>
+	<a href="{{pathFor '/cuentas/cliente/:id' id=cuentaVar.clienteId }}" class="btn btn-default">Back</a>
+	<a href="{{pathFor '/contratos/cuenta/:cuentaId' cuentaId=cuentaVar._id }}" class="btn btn-primary">Contratos</a>
 
 </template>

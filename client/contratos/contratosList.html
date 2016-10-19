@@ -1,5 +1,5 @@
 <template name="contratosShort">
-			{{nombre}} - {{cliente}} - {{cuenta}}, {{tipoContrato}} - {{estadoContrato}}
+			Tarifa: {{edesal.tarifa}}, Tipo de contrato: {{tipoContrato}}, Estado del contrato: {{edesal.estadoContrato}}
 </template>
 
 <template name="contratoNombre">
@@ -11,9 +11,9 @@
 		<h4><b>Contratos del Cliente</b></h4>
 		<div class="list-group">
 			{{#each contratosVar}}
-				<a href="{{ pathFor 'contratosShowTemplate' }}" class="list-group-item">{{> contratosShort }}</a>
+				<a href="{{ pathFor '/edesals/:id' id=this._id }}" class="list-group-item">{{> contratosShort }}</a>
 			{{/each}}
 		</div>
 	</div>
-	<a href="{{pathFor '/contratos/cuenta/:cuentaId/new' cuentaId=cuentaId }}" class="btn btn-info">Nuevo EDESAL</a>
+	<a href="{{pathFor '/edesals/cuenta/:cuentaId/new' cuentaId=cuentaId }}" class="btn btn-info">Nuevo EDESAL</a>
 </template>

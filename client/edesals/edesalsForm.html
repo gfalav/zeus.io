@@ -2,13 +2,13 @@
 	<fieldset>
 	<legend>Alta de Edesal</legend>
 	  	<div class="col-xs-12 col-sm-12">
-		   	<div class="col-xs-12 col-sm-12">
+		   	<div class="col-xs-6 col-sm-6">
 		   		{{> afQuickField name='_id' type="hidden"}}
 		   	</div>
+		   	<div class="col-xs-6 col-sm-6">
+	       		{{> afQuickField name='contratoId' type="hidden" value=cuentaId }}
+		   	</div>
 		   	<div class="col-xs-12 col-sm-12">
-		      	<div class="col-xs-12 col-sm-3">
-		       		{{> afQuickField name='contratoId'}}
-		       	</div>
 		    	<div class="col-xs-12 col-sm-3">
 		       		{{> afQuickField name='tarifa' options="allowed" firstOption=true}}
 		       	</div>

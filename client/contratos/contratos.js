@@ -80,3 +80,10 @@ Template.contratosUpdateTpl.helpers({
 		return Contratos.findOne({"_id": this.contratoId() })
 	}
 });
+
+Template.contratosShort.helpers({
+	edesal: function() {
+		return Edesals.findOne({"contratoId": this._id});
+	},
+
+});

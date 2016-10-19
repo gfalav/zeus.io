@@ -1,3 +1,3 @@
-Meteor.publish('edesalsPublish', function(contratoId) {
-	return Edesals.find({"contratoId": contratoId});
+Meteor.publish('edesalsPublish', function(edesalId) {
+	return Edesals.find({"_id": edesalId});
 })
