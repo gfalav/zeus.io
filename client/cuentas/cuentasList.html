@@ -20,6 +20,6 @@
 			{{/each}}
 		</div>
 	</div>
-	<a href="{{pathFor '/cuentas/cliente/:id/new' id=clienteId}}" class="btn btn-info">Nueva cuenta</a>
-	<a href="{{pathFor '/clientes/:id' id=clienteId}}" class="btn btn-default">> Cliente</a>
+	<a href="{{pathFor '/cuentas/cliente/:clienteId/new' clienteId=clienteId }}" class="btn btn-info">Nueva cuenta</a>
+	<a href="{{pathFor '/clientes/:id' id=clienteId }}" class="btn btn-default">> Cliente</a>
 </template>

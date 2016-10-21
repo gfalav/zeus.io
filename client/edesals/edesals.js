@@ -40,7 +40,6 @@ Template.edesalsShowTpl.onCreated(function() {
 Template.edesalsShowTpl.helpers({
 	edesalVar: function() {
 	    this.edesalId = () => FlowRouter.getParam('_id');
-
-		return Edesals.findOne({"_id": this.edesalId() })
+	    return Edesals.findOne({"_id": this.edesalId() });
 	}
 });

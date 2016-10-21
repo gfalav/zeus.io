@@ -1,3 +1,3 @@
 Meteor.publish('edesalsPublish', function(edesalId) {
-	return Edesals.find({"_id": edesalId});
+	var auxi =  Edesals.find({"_id": edesalId});
 })

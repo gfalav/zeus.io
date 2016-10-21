@@ -22,12 +22,6 @@ AutoForm.hooks({
 	}
 });
 
-Template.contratosFormTpl.helpers({
-	cuentaId: function() {
-		return FlowRouter.getParam('cuentaId');
-	}
-});
-
 Template.contratosListTpl.onCreated(function() {
 	this.cuentaId = () => FlowRouter.getParam('cuentaId');
 
@@ -44,40 +38,6 @@ Template.contratosListTpl.helpers({
 	},
 	cuentaId: function() {
 		return FlowRouter.getParam('cuentaId');
-	}
-});
-
-Template.contratosShowTpl.onCreated(function() {
-  this.contratoId = () => FlowRouter.getParam('_id');
-
-  this.autorun(() => {
-    this.subscribe('contratosPublish', null, this.contratoId());
-  });
-
-});
-
-Template.contratosShowTpl.helpers({
-	contratoVar: function() {
-	    this.contratoId = () => FlowRouter.getParam('_id');
-
-		return Contratos.findOne({"_id": this.contratoId() })
-	}
-});
-
-Template.contratosUpdateTpl.onCreated(function() {
-  this.contratoId = () => FlowRouter.getParam('_id');
-
-  this.autorun(() => {
-    this.subscribe('contratosPublish', null, this.contratoId());
-  });
-
-});
-
-Template.contratosUpdateTpl.helpers({
-	contratoVar: function() {
-	    this.contratoId = () => FlowRouter.getParam('_id');
-
-		return Contratos.findOne({"_id": this.contratoId() })
 	}
 });
 
